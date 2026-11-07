@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Техногик и обзорщик гаджетов</title>
+
+  <meta name="theme-color" id="theme-color" content="#d9d9d9">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .form-field {
+      height: 44px;
+      font-family: var(--font-main);
+      font-size: 1rem;
+    }
+  </style>
+
+  <script>
+    // Ранняя установка темы до первой отрисовки — чтобы не было «вспышки»
+    (function () {
+      try {
+        var raw = localStorage.getItem('techgeek:theme');
+        var saved = null;
+        try { saved = JSON.parse(raw); } catch (e) { saved = raw; }
+
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.dataset.theme = saved;
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.dataset.theme = 'dark';
+        } else {
+          document.documentElement.dataset.theme = 'light';
+        }
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1 class="page-title" style="text-align: center;">Техногик и обзорщик гаджетов</h1>
+    <p class="page-subtitle">Обзоры, тесты и разборки смартфонов, ноутбуков и носимой электроники</p>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <a class="nav__link" href="#skills">Навыки</a>
+      <a class="nav__link" href="#gadgets">Гаджеты недели</a>
+      <a class="nav__link" href="#my-gadgets">Мои гаджеты</a>
+      <a class="nav__link" href="#compare">Сравнение</a>
+      <a class="nav__link" href="#positioning">Позиционирование</a>
+      <a class="nav__link" href="#subscribe">Подписка</a>
+      <a class="nav__link" href="https://www.ixbt.com" target="_blank" rel="noopener">Внешний обзор</a>
+    </nav>
+
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+      🌙 Тёмная тема
+    </button>
+  </header>
+
+  <main class="page-main">
+
+    <section id="skills" class="section">
+      <h2 class="section__title">Навыки</h2>
+
+      <div class="cards">
+        <article class="card">
+          <span class="card__level">95%</span>
+          <h3 class="card__title">Обзоры смартфонов</h3>
+          <p class="card__text">Тесты камер, автономности и производительности. Сравнение флагманов и бюджетных моделей.</p>
+        </article>
+
+        <article class="card">
+          <span class="card__level">88%</span>
+          <h3 class="card__title">Разборка и ремонт</h3>
+          <p class="card__text">Полная разборка устройств, оценка ремонтопригодности, анализ элементной базы и сборки.</p>
+        </article>
+
+        <article class="card">
+          <span class="card__level">92%</span>
+          <h3 class="card__title">Бенчмарки</h3>
+          <p class="card__text">Синтетические и игровые тесты, замеры температур, троттлинг и энергопотребление.</p>
+        </article>
+
+        <article class="card">
+          <span class="card__level">80%</span>
+          <h3 class="card__title">Работа с видео</h3>
+          <p class="card__text">Съёмка, монтаж и цветокоррекция обзоров. Свет, звук и макросъёмка плат.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gadgets" class="section">
+      <h2 class="section__title">Гаджеты недели</h2>
+
+      <div class="gadget-row">
+
+        <article class="gadget">
+          <figure class="gadget__figure">
+            <img class="gadget__img"
+                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%23cfcfcf'/%3E%3Crect x='150' y='25' width='100' height='210' rx='20' fill='%231a1a1a'/%3E%3Crect x='161' y='42' width='78' height='176' rx='10' fill='%23e8e8e8'/%3E%3C/svg%3E"
+                 alt="Смартфон Neo Phone 12 Pro"
+                 width="400" height="260" loading="lazy" decoding="async">
+            <figcaption class="gadget__badge">Смартфон</figcaption>
+          </figure>
+          <h3 class="gadget__title">Neo Phone 12 Pro</h3>
+          <p class="gadget__feature"><strong>Фишка:</strong> камера 200 Мп с сенсором 1″ и оптической стабилизацией.</p>
+        </article>
+
+        <article class="gadget">
+          <figure class="gadget__figure">
+            <img class="gadget__img"
+                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%23cfcfcf'/%3E%3Crect x='105' y='55' width='190' height='125' rx='10' fill='%231a1a1a'/%3E%3Crect x='118' y='68' width='164' height='99' rx='5' fill='%23e8e8e8'/%3E%3Cpath d='M75 190h250l18 32H57z' fill='%23404040'/%3E%3C/svg%3E"
+                 alt="Ноутбук UltraBook Air 14"
+                 width="400" height="260" loading="lazy" decoding="async">
+            <figcaption class="gadget__badge">Ноутбук</figcaption>
+          </figure>
+          <h3 class="gadget__title">UltraBook Air 14</h3>
+          <p class="gadget__feature"><strong>Фишка:</strong> 22 часа автономной работы при весе всего 1,1 кг.</p>
+        </article>
+
+        <article class="gadget">
+          <figure class="gadget__figure">
+            <img class="gadget__img"
+                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%23cfcfcf'/%3E%3Crect x='172' y='10' width='56' height='240' rx='24' fill='%23404040'/%3E%3Crect x='146' y='82' width='108' height='96' rx='26' fill='%231a1a1a'/%3E%3Crect x='160' y='96' width='80' height='68' rx='16' fill='%23e8e8e8'/%3E%3C/svg%3E"
+                 alt="Умные часы Pulse Watch 5"
+                 width="400" height="260" loading="lazy" decoding="async">
+            <figcaption class="gadget__badge">Часы</figcaption>
+          </figure>
+          <h3 class="gadget__title">Pulse Watch 5</h3>
+          <p class="gadget__feature"><strong>Фишка:</strong> ЭКГ и датчик температуры тела — замер за 2 минуты.</p>
+        </article>
+
+        <article class="gadget">
+          <figure class="gadget__figure">
+            <img class="gadget__img"
+                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%23cfcfcf'/%3E%3Ccircle cx='160' cy='105' r='42' fill='%231a1a1a'/%3E%3Ccircle cx='240' cy='105' r='42' fill='%231a1a1a'/%3E%3Crect x='146' y='135' width='20' height='72' rx='10' fill='%23404040'/%3E%3Crect x='234' y='135' width='20' height='72' rx='10' fill='%23404040'/%3E%3C/svg%3E"
+                 alt="Наушники AirBuds Pro 3"
+                 width="400" height="260" loading="lazy" decoding="async">
+            <figcaption class="gadget__badge">Наушники</figcaption>
+          </figure>
+          <h3 class="gadget__title">AirBuds Pro 3</h3>
+          <p class="gadget__feature"><strong>Фишка:</strong> активное шумоподавление −48 дБ и 8 часов без кейса.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="my-gadgets" class="section">
+      <h2 class="section__title">Мои гаджеты</h2>
+
+      <form class="form gadget-form" id="gadget-form" autocomplete="off">
+        <div class="form__row">
+          <label class="form__label" for="gadget-name">Название гаджета</label>
+          <input class="form-field" id="gadget-name" name="gadget-name" type="text"
+                 placeholder="Например, Neo Phone 12 Pro" maxlength="80">
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="gadget-specs">Характеристики (через запятую)</label>
+          <input class="form-field" id="gadget-specs" name="gadget-specs" type="text"
+                 placeholder="Камера 200 Мп, AMOLED 120 Гц, 5500 мА·ч">
+        </div>
+
+        <div class="gadget-form__actions">
+          <button class="btn" type="submit">Добавить гаджет</button>
+          <button class="btn btn--secondary" id="remove-last" type="button">Удалить последний</button>
+          <button class="btn btn--secondary" id="toggle-list" type="button"
+                  aria-controls="gadget-list" aria-expanded="true">Скрыть список</button>
+        </div>
+
+        <p class="form__message" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <ul class="gadget-list" id="gadget-list" aria-label="Список гаджетов"></ul>
+    </section>
+
+    <section id="compare" class="section">
+      <h2 class="section__title">Сравнение характеристик</h2>
+
+      <div class="dashboard">
+
+        <article class="metric">
+          <h3 class="metric__title">Процессор</h3>
+          <p class="metric__value"><data value="3.2">3,2 ГГц</data></p>
+          <p class="metric__note">8 ядер · 3 нм · 12 ГБ ОЗУ</p>
+          <div class="metric__bar" role="presentation">
+            <span class="metric__fill" style="width: 96%;"></span>
+          </div>
+        </article>
+
+        <article class="metric">
+          <h3 class="metric__title">Экран</h3>
+          <p class="metric__value"><data value="6.8">6,8″</data></p>
+          <p class="metric__note">AMOLED · 120 Гц · 2600 нит</p>
+          <div class="metric__bar" role="presentation">
+            <span class="metric__fill" style="width: 88%;"></span>
+          </div>
+        </article>
+
+        <article class="metric">
+          <h3 class="metric__title">Батарея</h3>
+          <p class="metric__value"><data value="5500">5500 мА·ч</data></p>
+          <p class="metric__note">120 Вт · 0–100% за 19 минут</p>
+          <div class="metric__bar" role="presentation">
+            <span class="metric__fill" style="width: 82%;"></span>
+          </div>
+        </article>
+
+        <article class="metric metric--wide">
+          <h3 class="metric__title">Итоговый рейтинг недели</h3>
+
+          <ul class="rating">
+            <li class="rating__row">
+              <span class="rating__name">Neo Phone 12 Pro</span>
+              <span class="rating__bar"><span class="rating__fill" style="width: 95%;"></span></span>
+              <span class="rating__num"><data value="9.5">9,5</data></span>
+            </li>
+            <li class="rating__row">
+              <span class="rating__name">UltraBook Air 14</span>
+              <span class="rating__bar"><span class="rating__fill" style="width: 89%;"></span></span>
+              <span class="rating__num"><data value="8.9">8,9</data></span>
+            </li>
+            <li class="rating__row">
+              <span class="rating__name">Pulse Watch 5</span>
+              <span class="rating__bar"><span class="rating__fill" style="width: 84%;"></span></span>
+              <span class="rating__num"><data value="8.4">8,4</data></span>
+            </li>
+            <li class="rating__row">
+              <span class="rating__name">AirBuds Pro 3</span>
+              <span class="rating__bar"><span class="rating__fill" style="width: 78%;"></span></span>
+              <span class="rating__num"><data value="7.8">7,8</data></span>
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="positioning" class="section">
+      <h2 class="section__title">Примеры позиционирования</h2>
+
+      <div class="pos-stage">
+        <span class="pos-absolute">absolute</span>
+
+        <p class="pos-box pos-static">
+          <strong>position: static</strong> — элемент в обычном потоке документа.
+        </p>
+
+        <p class="pos-box pos-relative">
+          <strong>position: relative</strong> — элемент сдвинут вниз и вправо,
+          но его место в потоке сохраняется.
+        </p>
+
+        <p class="pos-box pos-static">
+          <strong>position: static</strong> — следующий элемент обычного потока.
+        </p>
+      </div>
+    </section>
+
+    <section id="subscribe" class="section">
+      <h2 class="section__title">Подписка на обзоры</h2>
+
+      <form class="form" action="#" method="post">
+        <div class="form__row">
+          <label class="form__label" for="user-name">Имя</label>
+          <input class="form-field" id="user-name" name="name" type="text" placeholder="Иван">
+        </div>
+
+        <div class="form__row">
+          <label class="form__label" for="user-email">E-mail</label>
+          <input class="form-field" id="user-email" name="email" type="email" placeholder="ivan@mail.ru">
+        </div>
+
+        <button class="btn" type="submit">Подписаться</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>© 2026 TechGeek. Все обзоры коррумпированы.</p>
+  </footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
